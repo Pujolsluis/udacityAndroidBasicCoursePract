@@ -20,14 +20,14 @@
             android:layout_height="wrap_content"
             android:background="@android:color/holo_green_light"
             android:padding="15dp"
-            android:text="Hello World!"
+            android:text="@string/top_textView"
             android:textStyle="bold"
             android:textAlignment="center"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_blue_light"
-            android:text="I'm Rocking this again!"
+            android:text="@string/middle_textView"
             android:padding="15dp"
             android:textStyle="italic"
             android:textAlignment="center"/>
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_orange_light"
-            android:text="Woohooo!"
+            android:text="@string/final_textView"
             android:textStyle="bold"
             android:textAlignment="center"
             android:padding="15dp"/>
