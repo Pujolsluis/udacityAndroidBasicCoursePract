@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Single Screen App</string>
+    <string name="bussines_name_sevendips">Seven Dip\'s</string>
+    <string name="bussines_type_restaurant">Restaurant</string>
+    <string name="bussines_phone_sevendips">(809) - 364 - 9432</string>
+    <string name="bussines_address_sevendips">Calle Crisantemos #10, Jardines del Norte. Santo Domingo</string>
+    <string name="bussines_working_hours_sevendips">7:00 AM - 9:15 PM</string>
+    <string name="bussines_description_sevendips">Restaurante familiar, dispuesto a satisfacer tu paladar con sus siete salsas base para la elaboración de sus platos. Si necesita un lugar tranquilo y acogedor para descansar y comer algo despues de clases este es el lugar para hacerlo.</string>
+</resources>
