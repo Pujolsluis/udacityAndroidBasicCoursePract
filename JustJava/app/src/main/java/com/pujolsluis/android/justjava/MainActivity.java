@@ -8,18 +8,23 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     Integer quantity = 0;
+    TextView thankyouTextView;
+    TextView orderTotalTextView;
+    TextView quantityTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        thankyouTextView = (TextView) findViewById(R.id.textView_thankYou);
+        quantityTextView = (TextView) findViewById(R.id.textView_QuantityTotal);
+        orderTotalTextView = (TextView) findViewById(R.id.textView_priceTotal);
     }
+
 
     public void increaseQuantity(View v){
         quantity++;
-        TextView thankyouTextView = (TextView) findViewById(R.id.textView_thankYou);
-        TextView quantityTextView = (TextView) findViewById(R.id.textView_QuantityTotal);
-        TextView orderTotalTextView = (TextView) findViewById(R.id.textView_priceTotal);
 
         if(thankyouTextView.getVisibility() == View.VISIBLE){
             orderTotalTextView.setText("$0");
@@ -31,9 +36,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void decreaseQuantity(View v){
-        TextView thankyouTextView = (TextView) findViewById(R.id.textView_thankYou);
-        TextView orderTotalTextView = (TextView) findViewById(R.id.textView_priceTotal);
-        TextView quantityTextView = (TextView) findViewById(R.id.textView_QuantityTotal);
 
         if(thankyouTextView.getVisibility() == View.VISIBLE){
             orderTotalTextView.setText("$0");
@@ -47,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void orderCoffe(View v){
-        TextView thankyouTextView = (TextView) findViewById(R.id.textView_thankYou);
-        TextView orderTotalTextView = (TextView) findViewById(R.id.textView_priceTotal);
 
         Integer orderTotal = quantity * 5;
         orderTotalTextView.setText("$" + orderTotal.toString());

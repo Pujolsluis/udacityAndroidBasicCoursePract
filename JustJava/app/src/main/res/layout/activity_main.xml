@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:text="Quantity"
+        android:text="@string/textView_quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
@@ -20,7 +20,7 @@
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
-        android:text="-"
+        android:text="@string/textView_minus"
         android:layout_height="48dp"
         android:id="@+id/button_decreaseQ"
         android:layout_marginTop="8dp"
@@ -31,7 +31,7 @@
         android:onClick="decreaseQuantity"/>
 
     <TextView
-        android:text="0"
+        android:text="@string/textView_quantityTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView_QuantityTotal"
@@ -41,7 +41,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/button_decreaseQ" />
 
     <Button
-        android:text="+"
+        android:text="@string/textView_plus"
         android:layout_height="48dp"
         android:id="@+id/button_increaseQ"
         app:layout_constraintBottom_toBottomOf="@+id/textView_QuantityTotal"
@@ -52,7 +52,7 @@
         android:onClick="increaseQuantity"/>
 
     <TextView
-        android:text="Price"
+        android:text="@string/textView_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView_price"
@@ -63,7 +63,7 @@
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
-        android:text="Total:"
+        android:text="@string/textView_totalPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -73,7 +73,7 @@
         android:id="@+id/textView_total" />
 
     <TextView
-        android:text="$0"
+        android:text="@string/textView_defaultPriceValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView_priceTotal"
@@ -83,7 +83,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView_total" />
 
     <TextView
-        android:text="Thank you!"
+        android:text="@string/textView_thankyou"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView_thankYou"
@@ -93,7 +93,7 @@
         android:visibility="gone" />
 
     <Button
-        android:text="Order"
+        android:text="@string/textView_order"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button_Order"
