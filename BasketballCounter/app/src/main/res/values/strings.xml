@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Basketball Counter</string>
+    <string name="team_AName">Team A </string>
+    <string name="team_BName">Team B</string>
+    <string name="score_initial_value">0</string>
+    <string name="teams_onePoint_button">+1 Points</string>
+    <string name="teams_twoPoint_button">+2 Points</string>
+    <string name="tems_threePoint_button">+3 Points</string>
+</resources>
