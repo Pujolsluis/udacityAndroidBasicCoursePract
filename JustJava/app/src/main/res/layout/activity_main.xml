@@ -27,7 +27,8 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_width="48dp" />
+        android:layout_width="48dp"
+        android:onClick="decreaseQuantity"/>
 
     <TextView
         android:text="0"
@@ -47,7 +48,8 @@
         app:layout_constraintTop_toTopOf="@+id/textView_QuantityTotal"
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toRightOf="@+id/textView_QuantityTotal"
-        android:layout_width="48dp" />
+        android:layout_width="48dp"
+        android:onClick="increaseQuantity"/>
 
     <TextView
         android:text="Price"
@@ -85,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView_thankYou"
+        android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_total"
         android:visibility="gone" />
@@ -98,5 +101,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView_thankYou"
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        tools:text="Order" />
+        tools:text="Order"
+        android:onClick="orderCoffe"
+        />
 </android.support.constraint.ConstraintLayout>
