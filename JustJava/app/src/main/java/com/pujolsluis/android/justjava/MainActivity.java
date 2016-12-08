@@ -53,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
         if(chocolate.isChecked()) orderTotal += 2;
 
         String bodyText = "Name: " + name + "\n" + "Add whipped cream? " + whippedCream.isChecked() + "\n" + "Add chocolate? " + chocolate.isChecked()
-                + "Quantity: " + quantity + "\n" + "Total: $" + orderTotal + "\n" + "Thank you!";
+                + "\n" + "Quantity: " + quantity + "\n" + "Total: $" + orderTotal + "\n" + "Thank you!";
 
         Intent sendEmail = new Intent(ACTION_SEND);
         sendEmail.setType("text/plain");
         sendEmail.putExtra(EXTRA_SUBJECT, "Just Java order for " + name);
         sendEmail.putExtra(EXTRA_TEXT, bodyText);
-        
+
         if(sendEmail.resolveActivity(getPackageManager()) != null){
             startActivity(sendEmail);
         }

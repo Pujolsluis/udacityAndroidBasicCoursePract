@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Just Java</string>
+    <string name="textView_defaultPriceValue">$0</string>
+    <string name="textView_minus">-</string>
+    <string name="textView_order">Ordenar</string>
+    <string name="textView_plus">+</string>
+    <string name="textView_price">Precio</string>
+    <string name="textView_quantity">Cantidad</string>
+    <string name="textView_quantityTotal">0</string>
+    <string name="textView_thankyou">Muchas gracias!</string>
+    <string name="textView_totalPrice">Total:</string>
+    <string name="textView_toppings">Topes</string>
+</resources>

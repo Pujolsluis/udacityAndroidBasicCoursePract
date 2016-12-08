@@ -81,7 +81,7 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
-        android:text="Toppings"
+        android:text="@string/textView_toppings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView_toppings"

@@ -3,6 +3,7 @@
     <string name="textView_quantity">Quantity</string>
     <string name="textView_plus">+</string>
     <string name="textView_quantityTotal">0</string>
+    <string name="textView_toppings">Toppings</string>
     <string name="textView_minus">-</string>
     <string name="textView_price">Price</string>
     <string name="textView_totalPrice">Total:</string>
