@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--Style for headers-->
+    <style name="headerStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#4527A0</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
 </resources>

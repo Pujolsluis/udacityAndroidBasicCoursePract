@@ -27,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_width="48dp"
+        android:layout_width="88dp"
         android:onClick="decreaseQuantity"/>
 
     <TextView
@@ -49,7 +49,7 @@
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toRightOf="@+id/textView_QuantityTotal"
         android:onClick="increaseQuantity"
-        android:layout_width="48dp" />
+        android:layout_width="88dp" />
 
 
     <Button
@@ -108,4 +108,6 @@
         app:layout_constraintLeft_toLeftOf="@+id/textView_toppings"
         app:layout_constraintTop_toBottomOf="@+id/checkBox_whippedCream"
         android:layout_marginTop="16dp" />
+
+
 </android.support.constraint.ConstraintLayout>
