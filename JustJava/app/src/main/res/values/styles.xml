@@ -8,6 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--Custom application theme-->
+    <style name="Green_Brown_Theme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimaryGB</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkGB</item>
+        <item name="colorAccent">@color/colorAccentGB</item>
+    </style>
+
     <!--Style for headers-->
     <style name="headerStyle">
         <item name="android:textSize">20sp</item>

@@ -3,4 +3,10 @@
     <color name="colorPrimary">#795548</color>
     <color name="colorPrimaryDark">#5d4037</color>
     <color name="colorAccent">#69f0ae</color>
+
+    <!--Custom theme colors-->
+    <color name="colorPrimaryGB">#8BC34A</color>
+    <color name="colorPrimaryDarkGB">#689F38</color>
+    <color name="colorAccentGB">#795548</color>
+
 </resources>
