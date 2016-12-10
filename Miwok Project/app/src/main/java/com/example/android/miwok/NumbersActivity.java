@@ -16,15 +16,15 @@ public class NumbersActivity extends AppCompatActivity {
 
         ArrayList<Word> numbersArray = new ArrayList<Word>();
         numbersArray.add(new Word("lutti", "one"));
-        numbersArray.add(new Word("lutti", "two"));
-        numbersArray.add(new Word("lutti", "three"));
-        numbersArray.add(new Word("lutti", "four"));
-        numbersArray.add(new Word("lutti", "five"));
-        numbersArray.add(new Word("lutti", "six"));
-        numbersArray.add(new Word("lutti", "seven"));
-        numbersArray.add(new Word("lutti", "eight"));
-        numbersArray.add(new Word("lutti", "nine"));
-        numbersArray.add(new Word("lutti", "ten"));
+        numbersArray.add(new Word("otiiko", "two"));
+        numbersArray.add(new Word("tolookosu", "three"));
+        numbersArray.add(new Word("oyyisa", "four"));
+        numbersArray.add(new Word("massokka", "five"));
+        numbersArray.add(new Word("temmokka", "six"));
+        numbersArray.add(new Word("kenekaku", "seven"));
+        numbersArray.add(new Word("kawinta", "eight"));
+        numbersArray.add(new Word("wo’e", "nine"));
+        numbersArray.add(new Word("na’aacha", "ten"));
 
 
 
