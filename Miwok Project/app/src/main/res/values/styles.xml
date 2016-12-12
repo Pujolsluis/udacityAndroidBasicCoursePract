@@ -41,6 +41,5 @@
     </style>
     <style name="CategoryItemViewStyle">
         <item name="android:background">@color/category_numbers</item>
-        <item name="android:padding">16dp</item>
     </style>
 </resources>
