@@ -27,13 +27,14 @@
             style="@style/CategoryItemViewStyle">
 
             <TextView
+                style="@style/CategoryItemMiwokWordStyle"
                 tools:text="lutti"
                 android:id="@+id/miwok_textView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="bottom"
-                style="@style/CategoryItemMiwokWordStyle"
+                android:paddingLeft="16dp"
                 />
             <TextView
                 tools:text="one"
@@ -43,6 +44,7 @@
                 android:layout_weight="1"
                 android:gravity="top"
                 android:textSize="18sp"
+                android:paddingLeft="16dp"
                 />
 
         </LinearLayout>

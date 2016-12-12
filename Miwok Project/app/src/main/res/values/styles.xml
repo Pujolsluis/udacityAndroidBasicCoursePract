@@ -32,9 +32,8 @@
     </style>
     <style name="CategoryItemMiwokWordStyle">
         <item name="android:textStyle">bold</item>
-        <item name="android:color">@android:color/white</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">18sp</item>
-        <!--<item name="android:paddingLeft">16dp</item>-->
     </style>
     <style name="CategoryImageViewStyle">
         <item name="android:background">@color/tan_background</item>
