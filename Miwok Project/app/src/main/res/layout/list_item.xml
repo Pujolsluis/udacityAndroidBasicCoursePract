@@ -24,7 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/list_item_height"
             android:orientation="vertical"
-            style="@style/CategoryItemViewStyle">
+            android:id="@+id/rootLinearLayout"
+            >
 
             <TextView
                 style="@style/CategoryItemMiwokWordStyle"

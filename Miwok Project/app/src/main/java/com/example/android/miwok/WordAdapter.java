@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,8 +18,11 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    public WordAdapter(Context context, ArrayList<Word> wordList) {
+    private int backgroundColor;
+
+    public WordAdapter(Context context, ArrayList<Word> wordList, int color) {
         super(context, 0,wordList);
+        backgroundColor = color;
     }
 
     @NonNull
@@ -45,6 +49,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         TextView englishTextView = (TextView) listItemView.findViewById(R.id.english_textView);
         englishTextView.setText(currentWord.getEnglishTranslation());
+
+        LinearLayout rootLayout = (LinearLayout) listItemView.findViewById(R.id.rootLinearLayout);
+        rootLayout.setBackgroundResource(this.backgroundColor);
 
         return listItemView;
     }
