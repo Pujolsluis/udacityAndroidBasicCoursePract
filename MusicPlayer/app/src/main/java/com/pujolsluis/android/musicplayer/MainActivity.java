@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 String displayStatus = "Current Position: " + currentPositionM + " min, " + currentPositionS
                                         + " sec\nTotal Duration: " + durationTotalM + " min, " + durationTotalS + "sec";
                 Toast.makeText(view.getContext(), displayStatus, Toast.LENGTH_SHORT).show();
+
                 Log.v("MainActivity", String.format("Current Position: %d min, %d sec\nTotal Duration: %d min, %d sec ",
                                                      currentPositionM, currentPositionS, durationTotalM, durationTotalS));
 

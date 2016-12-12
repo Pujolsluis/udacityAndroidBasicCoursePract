@@ -9,16 +9,19 @@ public class Word {
     private String englishTranslation;
     private String miwokTranslation;
     private Integer ImageResourceId = NO_IMAGE_PROVIDED;
+    private Integer audioResourceId = NO_IMAGE_PROVIDED;
 
-    public Word(String miwok, String english, Integer imageID){
+    public Word(String miwok, String english, Integer imageID, Integer audioID){
         miwokTranslation = miwok;
         englishTranslation = english;
         ImageResourceId = imageID;
+        audioResourceId = audioID;
     }
 
-    public Word(String miwok, String english){
+    public Word(String miwok, String english, Integer audioID){
         miwokTranslation = miwok;
         englishTranslation = english;
+        audioResourceId = audioID;
     }
 
 
@@ -48,5 +51,15 @@ public class Word {
 
     public boolean hasImage(){
         return ImageResourceId != NO_IMAGE_PROVIDED;
+    }
+
+    public boolean hasAudioFile(){ return audioResourceId != NO_IMAGE_PROVIDED; }
+
+    public Integer getAudioResourceId() {
+        return audioResourceId;
+    }
+
+    public void setAudioResourceId(Integer audioResourceId) {
+        this.audioResourceId = audioResourceId;
     }
 }
