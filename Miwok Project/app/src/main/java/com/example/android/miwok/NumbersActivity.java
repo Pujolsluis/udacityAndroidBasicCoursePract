@@ -10,6 +10,8 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
+        MediaPlayer rootMediaPlayer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +38,29 @@ public class NumbersActivity extends AppCompatActivity {
 
         listView.setAdapter(itemsAdapter);
 
-
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MediaPlayer rootMediaPlayer = MediaPlayer.create(view.getContext(), numbersArray.get(position).getAudioResourceId());
+                releaseMediaPlayer();
+                rootMediaPlayer = MediaPlayer.create(view.getContext(), numbersArray.get(position).getAudioResourceId());
                 rootMediaPlayer.start();
+                rootMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        releaseMediaPlayer();
+                    }
+                });
             }
         });
 
     }
+
+    public void releaseMediaPlayer(){
+        if(rootMediaPlayer != null){
+            rootMediaPlayer.release();
+            rootMediaPlayer = null;
+        }
+    }
+
 }
+
