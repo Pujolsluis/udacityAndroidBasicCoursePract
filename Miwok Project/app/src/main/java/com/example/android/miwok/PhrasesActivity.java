@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class PhrasesActivity extends AppCompatActivity {
 
+        MediaPlayer rootMediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +39,24 @@ public class PhrasesActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MediaPlayer rootMediaPlayer = MediaPlayer.create(view.getContext(), phrasesArray.get(position).getAudioResourceId());
+                rootMediaPlayer = null;
+                rootMediaPlayer = MediaPlayer.create(view.getContext(), phrasesArray.get(position).getAudioResourceId());
                 rootMediaPlayer.start();
+                rootMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        releaseMediaPlayer();
+                        rootMediaPlayer = null;
+                    }
+                });
             }
         });
+    }
+
+    public void releaseMediaPlayer(){
+        if(rootMediaPlayer != null){
+            rootMediaPlayer.release();
+            rootMediaPlayer = null;
+        }
     }
 }
