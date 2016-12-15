@@ -1,7 +1,6 @@
 package com.example.android.miwok;
 
 import android.content.Context;
-import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,13 +53,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
         LinearLayout rootLayout = (LinearLayout) listItemView.findViewById(R.id.rootLinearLayout);
         rootLayout.setBackgroundResource(this.backgroundColor);
 
-        final MediaPlayer rootMediaPlayer = MediaPlayer.create(rootLayout.getContext(), currentWord.getAudioResourceId());
-        rootLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                rootMediaPlayer.start();
-            }
-        });
         return listItemView;
     }
 }
