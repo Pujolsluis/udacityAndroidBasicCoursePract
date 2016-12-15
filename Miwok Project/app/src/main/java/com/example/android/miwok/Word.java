@@ -62,4 +62,14 @@ public class Word {
     public void setAudioResourceId(Integer audioResourceId) {
         this.audioResourceId = audioResourceId;
     }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "audioResourceId=" + audioResourceId +
+                ", englishTranslation='" + englishTranslation + '\'' +
+                ", miwokTranslation='" + miwokTranslation + '\'' +
+                ", ImageResourceId=" + ImageResourceId +
+                '}';
+    }
 }
