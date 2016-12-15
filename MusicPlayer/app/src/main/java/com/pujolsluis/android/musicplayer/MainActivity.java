@@ -28,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 currSong.start();
+                currSong.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mediaPlayer) {
+                        Toast.makeText(playButton.getContext(), "Im done!", Toast.LENGTH_SHORT).show();
+                    }
+                });
                 Log.d("MainActivity", "Play Song");
             }
         });
