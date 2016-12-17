@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:minHeight="@dimen/list_item_height"
+    android:layout_height="@dimen/list_item_height"
     xmlns:tools="http://schemas.android.com/tools"
     >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
         <ImageView
             android:layout_width="@dimen/list_item_height"
             android:layout_height="@dimen/list_item_height"
@@ -23,6 +15,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/list_item_height"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/item_imageView"
             android:orientation="vertical"
             android:id="@+id/rootLinearLayout"
             >
@@ -50,9 +46,15 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="16dp"
+            android:layout_alignParentRight = "true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_play_arrow_white_24dp"
+            />
 
 
-    </LinearLayout>
 
-
-</LinearLayout>
+</RelativeLayout>
