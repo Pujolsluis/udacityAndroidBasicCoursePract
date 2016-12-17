@@ -46,7 +46,7 @@ public class PhrasesActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                rootMediaPlayer = null;
+                releaseMediaPlayer();
 
                 int result = audioManager.requestAudioFocus(mOnAudioFocusChangeListener,
                         AudioManager.STREAM_MUSIC,
