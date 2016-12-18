@@ -4,7 +4,9 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -35,6 +37,7 @@ public class FamilyActivity extends AppCompatActivity {
         familyArray.add(new Word("ama", "grandmother", R.drawable.family_grandmother, R.raw.family_grandmother));
         familyArray.add(new Word("paapa", "grandfather", R.drawable.family_grandfather, R.raw.family_grandfather));
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         WordAdapter itemsAdapter = new WordAdapter(this, familyArray, R.color.category_family);
 
@@ -58,7 +61,6 @@ public class FamilyActivity extends AppCompatActivity {
                         @Override
                         public void onCompletion(MediaPlayer mp) {
                             releaseMediaPlayer();
-                            rootMediaPlayer = null;
                         }
                     });
                 }
@@ -71,6 +73,7 @@ public class FamilyActivity extends AppCompatActivity {
         if(rootMediaPlayer != null){
             rootMediaPlayer.release();
             rootMediaPlayer = null;
+            audioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
         }
     }
 
@@ -105,5 +108,14 @@ public class FamilyActivity extends AppCompatActivity {
         }
     };
 
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

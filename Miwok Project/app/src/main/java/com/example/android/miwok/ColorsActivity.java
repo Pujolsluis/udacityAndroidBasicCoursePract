@@ -4,14 +4,19 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
+
+
 public class ColorsActivity extends AppCompatActivity {
+
 
         MediaPlayer rootMediaPlayer;
         AudioManager audioManager;
@@ -33,6 +38,8 @@ public class ColorsActivity extends AppCompatActivity {
         colorsArray.add(new Word("ṭopiisә", "dusty yellow", R.drawable.color_dusty_yellow, R.raw.color_dusty_yellow));
         colorsArray.add(new Word("chiwiiṭә", "mustard yellow", R.drawable.color_mustard_yellow, R.raw.color_mustard_yellow));
 
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         WordAdapter itemsAdapter = new WordAdapter(this, colorsArray, R.color.category_colors);
 
@@ -56,7 +63,6 @@ public class ColorsActivity extends AppCompatActivity {
                         @Override
                         public void onCompletion(MediaPlayer mp) {
                             releaseMediaPlayer();
-                            rootMediaPlayer = null;
                         }
                     });
                 }
@@ -69,8 +75,8 @@ public class ColorsActivity extends AppCompatActivity {
     public void releaseMediaPlayer(){
         if(rootMediaPlayer != null){
             rootMediaPlayer.release();
-            audioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
             rootMediaPlayer = null;
+            audioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
         }
     }
 
@@ -104,4 +110,15 @@ public class ColorsActivity extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

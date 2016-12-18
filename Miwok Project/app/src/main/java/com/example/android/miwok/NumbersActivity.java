@@ -4,7 +4,9 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -38,9 +40,12 @@ public class NumbersActivity extends AppCompatActivity {
 
         WordAdapter itemsAdapter = new WordAdapter(this, numbersArray, R.color.category_numbers);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         final ListView listView = (ListView) findViewById(R.id.list);
 
         listView.setAdapter(itemsAdapter);
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -58,7 +63,6 @@ public class NumbersActivity extends AppCompatActivity {
                         @Override
                         public void onCompletion(MediaPlayer mp) {
                             releaseMediaPlayer();
-                            rootMediaPlayer = null;
                         }
                     });
                 }
@@ -71,6 +75,7 @@ public class NumbersActivity extends AppCompatActivity {
         if(rootMediaPlayer != null){
             rootMediaPlayer.release();
             rootMediaPlayer = null;
+            audioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
         }
     }
 
@@ -104,5 +109,16 @@ public class NumbersActivity extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
 
