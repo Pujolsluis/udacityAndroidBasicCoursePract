@@ -18,7 +18,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/tan_background"
+    android:background="@color/primary_color"
     android:orientation="vertical"
     tools:context="com.example.android.miwok.MainActivity">
 
@@ -26,13 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/sibling_tabs"
-        android:background="@color/primary_color"
-        app:tabMode="fixed"
-        app:tabGravity="fill"
-        app:tabMaxWidth="0dp"
-        app:tabTextColor="#A8A19E"
-        app:tabSelectedTextColor="@android:color/white"
-        app:tabIndicatorColor="@android:color/white"
+        style="@style/CategoryTab"
         />
 
     <android.support.v4.view.ViewPager
