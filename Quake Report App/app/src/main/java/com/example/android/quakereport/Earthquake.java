@@ -5,19 +5,21 @@ package com.example.android.quakereport;
  */
 
 public class Earthquake {
-    private String mMagnitude, mLocation, mDate;
+    private double mMagnitude;
+    private String mLocation;
+    private Long mDate;
 
-    public Earthquake(String mag, String loc, String mDate){
+    public Earthquake(double mag, String loc, Long mDate){
         mMagnitude = mag;
         mLocation = loc;
         this.mDate = mDate;
     }
 
-    public String getmDate() {
+    public Long getmDate() {
         return mDate;
     }
 
-    public void setmDate(String mDate) {
+    public void setmDate(Long mDate) {
         this.mDate = mDate;
     }
 
@@ -29,11 +31,11 @@ public class Earthquake {
         this.mLocation = mLocation;
     }
 
-    public String getmMagnitude() {
+    public double getmMagnitude() {
         return mMagnitude;
     }
 
-    public void setmMagnitude(String mMagnitude) {
+    public void setmMagnitude(double mMagnitude) {
         this.mMagnitude = mMagnitude;
     }
 }

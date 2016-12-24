@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -25,7 +24,7 @@ public class EarthquakeListAdapter extends ArrayAdapter<Earthquake> {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View listItemView = (ListView) convertView;
+        View listItemView = convertView;
         if(listItemView == null){
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.earthquake_list_item, parent, false);
         }
@@ -33,13 +32,15 @@ public class EarthquakeListAdapter extends ArrayAdapter<Earthquake> {
         Earthquake currentEarthquake = getItem(position);
 
         TextView magnitudeTextView = (TextView) listItemView.findViewById(R.id.magnitude_text_view);
-        magnitudeTextView.setText( currentEarthquake.getmMagnitude());
+        String magnitudeConvert = "" + currentEarthquake.getmMagnitude();
+        magnitudeTextView.setText(magnitudeConvert);
 
         TextView locationTextView = (TextView) listItemView.findViewById(R.id.location_text_view);
         locationTextView.setText(currentEarthquake.getmLocation());
 
         TextView dateTextView = (TextView) listItemView.findViewById(R.id.date_text_view);
-        dateTextView.setText(currentEarthquake.getmDate());
+        String date = "" + currentEarthquake.getmDate();
+        dateTextView.setText(date);
 
         return listItemView;
     }
