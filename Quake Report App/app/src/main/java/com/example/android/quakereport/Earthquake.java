@@ -5,7 +5,7 @@ package com.example.android.quakereport;
  */
 
 public class Earthquake {
-    String mMagnitude, mLocation, mDate;
+    private String mMagnitude, mLocation, mDate;
 
     public Earthquake(String mag, String loc, String mDate){
         mMagnitude = mag;
