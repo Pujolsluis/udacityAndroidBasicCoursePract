@@ -5,35 +5,35 @@ package com.example.android.quakereport;
  */
 
 public class Earthquake {
-    String magnitude, location, date;
+    String mMagnitude, mLocation, mDate;
 
-    public Earthquake(String mag, String loc, String Date){
-        magnitude = mag;
-        location = loc;
-        date = Date;
+    public Earthquake(String mag, String loc, String mDate){
+        mMagnitude = mag;
+        mLocation = loc;
+        this.mDate = mDate;
     }
 
-    public String getDate() {
-        return date;
+    public String getmDate() {
+        return mDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setmDate(String mDate) {
+        this.mDate = mDate;
     }
 
-    public String getLocation() {
-        return location;
+    public String getmLocation() {
+        return mLocation;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setmLocation(String mLocation) {
+        this.mLocation = mLocation;
     }
 
-    public String getMagnitude() {
-        return magnitude;
+    public String getmMagnitude() {
+        return mMagnitude;
     }
 
-    public void setMagnitude(String magnitude) {
-        this.magnitude = magnitude;
+    public void setmMagnitude(String mMagnitude) {
+        this.mMagnitude = mMagnitude;
     }
 }
