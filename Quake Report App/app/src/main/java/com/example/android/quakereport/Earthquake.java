@@ -7,12 +7,26 @@ package com.example.android.quakereport;
 public class Earthquake {
     private double mMagnitude;
     private String mLocation;
+    private String mNearby;
     private Long mDate;
 
     public Earthquake(double mag, String loc, Long mDate){
         mMagnitude = mag;
-        mLocation = loc;
+
         this.mDate = mDate;
+        int endOfFirstString = loc.indexOf(" of");
+        String nearbyString, locationString;
+        if(endOfFirstString == -1){
+            nearbyString = "Nearby Of,";
+            locationString = loc;
+        }else{
+            nearbyString = loc.substring(0, endOfFirstString+3)+",";
+            locationString = loc.substring(endOfFirstString+4, loc.length());
+        }
+
+        mNearby = nearbyString;
+        mLocation = locationString;
+
     }
 
     public Long getmDate() {
@@ -37,5 +51,13 @@ public class Earthquake {
 
     public void setmMagnitude(double mMagnitude) {
         this.mMagnitude = mMagnitude;
+    }
+
+    public String getmNearby() {
+        return mNearby;
+    }
+
+    public void setmNearby(String mNearby) {
+        this.mNearby = mNearby;
     }
 }
