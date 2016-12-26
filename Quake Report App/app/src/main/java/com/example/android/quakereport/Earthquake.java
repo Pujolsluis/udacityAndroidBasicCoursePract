@@ -8,6 +8,7 @@ public class Earthquake {
     private double mMagnitude;
     private String mLocation;
     private String mNearby;
+    private String earthquakeURL;
     private Long mDate;
 
     public Earthquake(double mag, String loc, Long mDate){
@@ -59,5 +60,13 @@ public class Earthquake {
 
     public void setmNearby(String mNearby) {
         this.mNearby = mNearby;
+    }
+
+    public String getEarthquakeURL() {
+        return earthquakeURL;
+    }
+
+    public void setEarthquakeURL(String earthquakeURL) {
+        this.earthquakeURL = earthquakeURL;
     }
 }

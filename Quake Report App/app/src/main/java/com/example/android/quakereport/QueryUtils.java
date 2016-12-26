@@ -67,6 +67,7 @@ public final class QueryUtils {
 
                 Earthquake tempEarthquake = new Earthquake(magnitude, place, date);
 //                Log.d(LOG_TAG, "This Earthquake info is " + magnitude+ " " + place + " "+ date);
+                tempEarthquake.setEarthquakeURL(currEarthquakeProperties.optString("url"));
                 earthquakes.add(tempEarthquake);
             }
 
