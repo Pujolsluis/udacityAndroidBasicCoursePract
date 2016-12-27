@@ -162,10 +162,16 @@ public class MainActivity extends AppCompatActivity {
                 urlConnection.setReadTimeout(10000 /* milliseconds */);
                 urlConnection.setConnectTimeout(15000 /* milliseconds */);
                 urlConnection.connect();
-                inputStream = urlConnection.getInputStream();
-                jsonResponse = readFromStream(inputStream);
+                if(urlConnection.getResponseCode() == 200){
+                    inputStream = urlConnection.getInputStream();
+                    jsonResponse = readFromStream(inputStream);
+                }else{
+                    Log.e(LOG_TAG, "The response code for the connection was: " + urlConnection.getResponseCode());
+                }
             } catch (IOException e) {
                 // TODO: Handle the exception
+                Log.e(LOG_TAG, "The IOException was thrown");
+                e.printStackTrace();
             } finally {
                 if (urlConnection != null) {
                     urlConnection.disconnect();
