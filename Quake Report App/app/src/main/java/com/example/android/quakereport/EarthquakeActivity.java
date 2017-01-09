@@ -17,12 +17,15 @@ package com.example.android.quakereport;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -37,6 +40,8 @@ public class EarthquakeActivity extends AppCompatActivity implements android.app
     public static final String USGS_REQUEST_URL = "http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time&minmag=6&limit=10";
     private EarthquakeListAdapter earthquakeListAdapter;
     private TextView emptyTextView;
+    private ProgressBar loadingSpinner;
+    private Boolean isThereInternet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,8 @@ public class EarthquakeActivity extends AppCompatActivity implements android.app
 
         emptyTextView = (TextView) findViewById(R.id.empty_view);
         earthquakeListView.setEmptyView(emptyTextView);
+
+        loadingSpinner = (ProgressBar) findViewById(R.id.loading_spinner);
 
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
@@ -65,6 +72,13 @@ public class EarthquakeActivity extends AppCompatActivity implements android.app
             }
         });
 
+        ConnectivityManager connMan = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMan.getActiveNetworkInfo();
+        if(networkInfo != null && networkInfo.isConnected()){
+               isThereInternet = true;
+        }else{
+               isThereInternet = false;
+        }
         // Get a reference to the LoaderManager, in order to interact with loaders.
         android.app.LoaderManager loaderManager = getLoaderManager();
 
@@ -86,7 +100,12 @@ public class EarthquakeActivity extends AppCompatActivity implements android.app
 
     @Override
     public void onLoadFinished(android.content.Loader<List<Earthquake>> loader, List<Earthquake> data) {
-        emptyTextView.setText(R.string.no_earthquakes);
+        loadingSpinner.setVisibility(View.GONE);
+        if(isThereInternet) {
+            emptyTextView.setText(R.string.no_earthquakes);
+        }else{
+            emptyTextView.setText(R.string.no_internet_connection);
+        }
         // Clear the adapter of previous earthquake data
         earthquakeListAdapter.clear();
         earthquakes = data;
