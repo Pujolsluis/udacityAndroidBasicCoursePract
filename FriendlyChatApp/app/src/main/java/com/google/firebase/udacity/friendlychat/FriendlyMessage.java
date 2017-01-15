@@ -15,11 +15,14 @@
  */
 package com.google.firebase.udacity.friendlychat;
 
+import java.util.List;
+
 public class FriendlyMessage {
 
     private String text;
     private String name;
     private String photoUrl;
+    private List<String> mFriends;
 
     public FriendlyMessage() {
     }
@@ -52,5 +55,13 @@ public class FriendlyMessage {
 
     public void setPhotoUrl(String photoUrl) {
         this.photoUrl = photoUrl;
+    }
+
+    public List<String> getmFriends() {
+        return mFriends;
+    }
+
+    public void setmFriends(List<String> mFriends) {
+        this.mFriends = mFriends;
     }
 }

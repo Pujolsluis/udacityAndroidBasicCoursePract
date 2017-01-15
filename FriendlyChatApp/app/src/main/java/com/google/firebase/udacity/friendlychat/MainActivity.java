@@ -46,6 +46,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 import com.google.firebase.storage.FirebaseStorage;
@@ -83,6 +84,10 @@ public class    MainActivity extends AppCompatActivity {
     private FirebaseStorage mFirebaseStorage;
     private StorageReference mFirebaseStorageReference;
     private FirebaseRemoteConfig mFirebaseRemoteConfig;
+    private DatabaseReference mMessagesPlansDatabaseReference;
+    private Button mInitDB;
+    private String mLastKey;
+    private Button mUpdateDB;
 
     private String mUsername;
 
@@ -96,6 +101,7 @@ public class    MainActivity extends AppCompatActivity {
         mFirebaseStorage = FirebaseStorage.getInstance();
         mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
 
+        mMessagesPlansDatabaseReference = mFirebaseDatabase.getReference().child("plans");
         mMessagesDatabaseReference = mFirebaseDatabase.getReference().child("messages");
         mFirebaseStorageReference = mFirebaseStorage.getReference().child("chat_photos");
 
@@ -107,6 +113,59 @@ public class    MainActivity extends AppCompatActivity {
         mPhotoPickerButton = (ImageButton) findViewById(R.id.photoPickerButton);
         mMessageEditText = (EditText) findViewById(R.id.messageEditText);
         mSendButton = (Button) findViewById(R.id.sendButton);
+        mInitDB = (Button) findViewById(R.id.init_button);
+        mUpdateDB = (Button) findViewById(R.id.update_button);
+
+        mInitDB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Plan tempPlan = new Plan(mUsername, "Hello World Plan", "15/1/2017");
+                String key = mMessagesPlansDatabaseReference.push().getKey();
+                mMessagesPlansDatabaseReference.push().setValue(tempPlan);
+                Toast.makeText(context, "You Pressed me!", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "The new Key is: " + key);
+                mLastKey = key;
+            }
+        });
+
+        mUpdateDB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "mLastKey: " + mLastKey);
+                FirebaseDatabase.getInstance().getReference().child("plans").child(mLastKey)
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                // Get user information
+                                Plan tempPlan = dataSnapshot.getValue(Plan.class);
+
+                                tempPlan.setmTitle("Im Updated my Nigguh");
+                                tempPlan.setmDescription("Really? this is what you call a description -,-'");
+
+                                Map<String, Object> planValues = tempPlan.toMap();
+
+                                Map<String, Object> childUpdates = new HashMap<>();
+                                childUpdates.put(mLastKey, planValues);
+                                mMessagesPlansDatabaseReference.updateChildren(childUpdates);
+
+//                                // Create new comment object
+//                                String commentText = mCommentField.getText().toString();
+//                                Comment comment = new Comment(uid, authorName, commentText);
+//
+//                                // Push the comment, it will appear in the list
+//                                mCommentsReference.push().setValue(comment);
+//
+//                                // Clear the field
+//                                mCommentField.setText(null);
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                Log.e(TAG, databaseError.toString());
+                            }
+                        });
+                }
+        });
 
         // Initialize message ListView and its adapter
         List<FriendlyMessage> friendlyMessages = new ArrayList<>();
